@@ -1,0 +1,296 @@
+[
+  {
+    "description": "Changes the case of the input string to lower and returns it in an array.",
+    "tags": [
+      {
+        "title": "param",
+        "description": "The input string.",
+        "lineNumber": 3,
+        "type": {
+          "type": "NameExpression",
+          "name": "String"
+        },
+        "name": "string"
+      },
+      {
+        "title": "returns",
+        "description": "The array containing the converted string.",
+        "lineNumber": 4,
+        "type": {
+          "type": "NameExpression",
+          "name": "Array"
+        }
+      },
+      {
+        "title": "name",
+        "name": "lowerCase"
+      },
+      {
+        "title": "kind",
+        "kind": "function"
+      },
+      {
+        "title": "memberof",
+        "description": "module.exports"
+      },
+      {
+        "title": "static"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 18,
+        "column": 2
+      },
+      "end": {
+        "line": 23,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 2
+        },
+        "end": {
+          "line": 24,
+          "column": 69
+        }
+      },
+      "file": "/Users/edolaptop/Documents/oss/disqus-assignment/lib/correct.js",
+      "code": "{\n  isVowel,\n  Vowels,\n\n  /**\n   * Changes the case of the input string to lower and returns it in an array.\n   *\n   * @param  {String} string The input string.\n   * @return {Array}         The array containing the converted string.\n   */\n  lowerCase: string => [ String.prototype.toLowerCase.apply(string) ],\n\n  /**\n   * Finds letters repetitions, and computes the cartesian product, where each\n   * repeated letter is substituted itself repeated once or twice.\n   * Note: in the Unix `words` file the following words contain three consecutive\n   * letters:\n   *  - bossship\n   *  - demigoddessship\n   *  - goddessship\n   *  - headmistressship\n   *  - patronessship\n   *  - wallless\n   *  - whenceeer\n   *\n   *  We purposely ignored these 7 edge cases out of 235886 total words,\n   *  in favour of general better performance.\n   *\n   * @param  {String} string The input string.\n   * @return {Array}         The computed suggestions.\n   */\n  repetitions: string => {\n    const regex = /(.)\\1*/g;\n    const suggestions = product(\n      string.match(regex).map(group => {\n        if (group.length > 1) return [[group[0]], [group[0] + group[0]]];\n        return [group];\n      })\n    ).map(combination => computeDistance(combination, string));\n\n    return sortByAll(suggestions, ['distance', 'string'])\n      .map(suggestion => suggestion.string);\n  },\n\n  /**\n   * Finds all the possible combinations of vowels in a word.\n   *\n   * @param  {String} string The input string.\n   * @return {Array}         The computed suggestions.\n   */\n  vowels: string => {\n    const suggestions = product(\n      string.split('').map(char => {\n        if (isVowel(char)) return Vowels;\n        return [char];\n      })\n    ).map(combination => computeDistance(combination, string));\n\n    return sortByAll(suggestions, ['distance', 'string'])\n      .map(suggestion => suggestion.string);\n  }\n}"
+    },
+    "params": [
+      {
+        "title": "param",
+        "description": "The input string.",
+        "lineNumber": 3,
+        "type": {
+          "type": "NameExpression",
+          "name": "String"
+        },
+        "name": "string"
+      }
+    ],
+    "returns": [
+      {
+        "title": "returns",
+        "description": "The array containing the converted string.",
+        "lineNumber": 4,
+        "type": {
+          "type": "NameExpression",
+          "name": "Array"
+        }
+      }
+    ],
+    "name": "lowerCase",
+    "kind": "function",
+    "memberof": "module.exports",
+    "scope": "static",
+    "members": {
+      "instance": [],
+      "static": []
+    },
+    "events": [],
+    "path": [
+      "lowerCase"
+    ]
+  },
+  {
+    "description": "Finds letters repetitions, and computes the cartesian product, where each\nrepeated letter is substituted itself repeated once or twice.\nNote: in the Unix `words` file the following words contain three consecutive\nletters:\n - bossship\n - demigoddessship\n - goddessship\n - headmistressship\n - patronessship\n - wallless\n - whenceeer\n\n We purposely ignored these 7 edge cases out of 235886 total words,\n in favour of general better performance.",
+    "tags": [
+      {
+        "title": "param",
+        "description": "The input string.",
+        "lineNumber": 16,
+        "type": {
+          "type": "NameExpression",
+          "name": "String"
+        },
+        "name": "string"
+      },
+      {
+        "title": "returns",
+        "description": "The computed suggestions.",
+        "lineNumber": 17,
+        "type": {
+          "type": "NameExpression",
+          "name": "Array"
+        }
+      },
+      {
+        "title": "name",
+        "name": "repetitions"
+      },
+      {
+        "title": "kind",
+        "kind": "function"
+      },
+      {
+        "title": "memberof",
+        "description": "module.exports"
+      },
+      {
+        "title": "static"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 26,
+        "column": 2
+      },
+      "end": {
+        "line": 44,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 45,
+          "column": 2
+        },
+        "end": {
+          "line": 56,
+          "column": 3
+        }
+      },
+      "file": "/Users/edolaptop/Documents/oss/disqus-assignment/lib/correct.js",
+      "code": "{\n  isVowel,\n  Vowels,\n\n  /**\n   * Changes the case of the input string to lower and returns it in an array.\n   *\n   * @param  {String} string The input string.\n   * @return {Array}         The array containing the converted string.\n   */\n  lowerCase: string => [ String.prototype.toLowerCase.apply(string) ],\n\n  /**\n   * Finds letters repetitions, and computes the cartesian product, where each\n   * repeated letter is substituted itself repeated once or twice.\n   * Note: in the Unix `words` file the following words contain three consecutive\n   * letters:\n   *  - bossship\n   *  - demigoddessship\n   *  - goddessship\n   *  - headmistressship\n   *  - patronessship\n   *  - wallless\n   *  - whenceeer\n   *\n   *  We purposely ignored these 7 edge cases out of 235886 total words,\n   *  in favour of general better performance.\n   *\n   * @param  {String} string The input string.\n   * @return {Array}         The computed suggestions.\n   */\n  repetitions: string => {\n    const regex = /(.)\\1*/g;\n    const suggestions = product(\n      string.match(regex).map(group => {\n        if (group.length > 1) return [[group[0]], [group[0] + group[0]]];\n        return [group];\n      })\n    ).map(combination => computeDistance(combination, string));\n\n    return sortByAll(suggestions, ['distance', 'string'])\n      .map(suggestion => suggestion.string);\n  },\n\n  /**\n   * Finds all the possible combinations of vowels in a word.\n   *\n   * @param  {String} string The input string.\n   * @return {Array}         The computed suggestions.\n   */\n  vowels: string => {\n    const suggestions = product(\n      string.split('').map(char => {\n        if (isVowel(char)) return Vowels;\n        return [char];\n      })\n    ).map(combination => computeDistance(combination, string));\n\n    return sortByAll(suggestions, ['distance', 'string'])\n      .map(suggestion => suggestion.string);\n  }\n}"
+    },
+    "params": [
+      {
+        "title": "param",
+        "description": "The input string.",
+        "lineNumber": 16,
+        "type": {
+          "type": "NameExpression",
+          "name": "String"
+        },
+        "name": "string"
+      }
+    ],
+    "returns": [
+      {
+        "title": "returns",
+        "description": "The computed suggestions.",
+        "lineNumber": 17,
+        "type": {
+          "type": "NameExpression",
+          "name": "Array"
+        }
+      }
+    ],
+    "name": "repetitions",
+    "kind": "function",
+    "memberof": "module.exports",
+    "scope": "static",
+    "members": {
+      "instance": [],
+      "static": []
+    },
+    "events": [],
+    "path": [
+      "repetitions"
+    ]
+  },
+  {
+    "description": "Finds all the possible combinations of vowels in a word.",
+    "tags": [
+      {
+        "title": "param",
+        "description": "The input string.",
+        "lineNumber": 3,
+        "type": {
+          "type": "NameExpression",
+          "name": "String"
+        },
+        "name": "string"
+      },
+      {
+        "title": "returns",
+        "description": "The computed suggestions.",
+        "lineNumber": 4,
+        "type": {
+          "type": "NameExpression",
+          "name": "Array"
+        }
+      },
+      {
+        "title": "name",
+        "name": "vowels"
+      },
+      {
+        "title": "kind",
+        "kind": "function"
+      },
+      {
+        "title": "memberof",
+        "description": "module.exports"
+      },
+      {
+        "title": "static"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 58,
+        "column": 2
+      },
+      "end": {
+        "line": 63,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 64,
+          "column": 2
+        },
+        "end": {
+          "line": 74,
+          "column": 3
+        }
+      },
+      "file": "/Users/edolaptop/Documents/oss/disqus-assignment/lib/correct.js",
+      "code": "{\n  isVowel,\n  Vowels,\n\n  /**\n   * Changes the case of the input string to lower and returns it in an array.\n   *\n   * @param  {String} string The input string.\n   * @return {Array}         The array containing the converted string.\n   */\n  lowerCase: string => [ String.prototype.toLowerCase.apply(string) ],\n\n  /**\n   * Finds letters repetitions, and computes the cartesian product, where each\n   * repeated letter is substituted itself repeated once or twice.\n   * Note: in the Unix `words` file the following words contain three consecutive\n   * letters:\n   *  - bossship\n   *  - demigoddessship\n   *  - goddessship\n   *  - headmistressship\n   *  - patronessship\n   *  - wallless\n   *  - whenceeer\n   *\n   *  We purposely ignored these 7 edge cases out of 235886 total words,\n   *  in favour of general better performance.\n   *\n   * @param  {String} string The input string.\n   * @return {Array}         The computed suggestions.\n   */\n  repetitions: string => {\n    const regex = /(.)\\1*/g;\n    const suggestions = product(\n      string.match(regex).map(group => {\n        if (group.length > 1) return [[group[0]], [group[0] + group[0]]];\n        return [group];\n      })\n    ).map(combination => computeDistance(combination, string));\n\n    return sortByAll(suggestions, ['distance', 'string'])\n      .map(suggestion => suggestion.string);\n  },\n\n  /**\n   * Finds all the possible combinations of vowels in a word.\n   *\n   * @param  {String} string The input string.\n   * @return {Array}         The computed suggestions.\n   */\n  vowels: string => {\n    const suggestions = product(\n      string.split('').map(char => {\n        if (isVowel(char)) return Vowels;\n        return [char];\n      })\n    ).map(combination => computeDistance(combination, string));\n\n    return sortByAll(suggestions, ['distance', 'string'])\n      .map(suggestion => suggestion.string);\n  }\n}"
+    },
+    "params": [
+      {
+        "title": "param",
+        "description": "The input string.",
+        "lineNumber": 3,
+        "type": {
+          "type": "NameExpression",
+          "name": "String"
+        },
+        "name": "string"
+      }
+    ],
+    "returns": [
+      {
+        "title": "returns",
+        "description": "The computed suggestions.",
+        "lineNumber": 4,
+        "type": {
+          "type": "NameExpression",
+          "name": "Array"
+        }
+      }
+    ],
+    "name": "vowels",
+    "kind": "function",
+    "memberof": "module.exports",
+    "scope": "static",
+    "members": {
+      "instance": [],
+      "static": []
+    },
+    "events": [],
+    "path": [
+      "vowels"
+    ]
+  }
+]

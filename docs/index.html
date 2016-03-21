@@ -1,0 +1,190 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>spelling-suggestions 1.0.0</title>
+  <link href='assets/bass.css' type='text/css' rel='stylesheet' />
+  <link href='assets/style.css' type='text/css' rel='stylesheet' />
+  <link href='assets/github.css' type='text/css' rel='stylesheet' />
+</head>
+<body class='documentation'>
+  <div class='px2'>
+    <div class='clearfix flex flex-stretch mxn2'>
+      <div class='documentation-sidebar relative top-0 bottom-0 right-0 px2 py2 col-3 sm-show'>
+        <div class='font-smaller fixed col-3 top-0 bottom-0 left-0 overflow-auto black bg-cloudy'>
+          <a href="/" class="h5 button block button-transparent">spelling-suggestions 1.0.0</a>
+          <div class='px2'>
+              <a
+                href='#lowercase'
+                class='regular block'>
+                <code>lowerCase</code>
+              </a>
+              <a
+                href='#repetitions'
+                class='regular block'>
+                <code>repetitions</code>
+              </a>
+              <a
+                href='#vowels'
+                class='regular block'>
+                <code>vowels</code>
+              </a>
+          </div>
+        </div>
+      </div>
+      <div class='sm-col  col-9  flex flex-column'>
+        <div class='flex-auto full-width'>
+          <div class='px1'>
+<section id='lowercase'class='mt2 mb2 py1 px2 keyline-top'>
+  <h3 class='regular'>
+    <a class='black' href='#lowercase'>
+      <code>
+        lowerCase<span class='gray'>(string)</span>
+      </code>
+    </a>
+  </h3>
+  <p>Changes the case of the input string to lower and returns it in an array.</p>
+
+
+    <p>
+      <table class='table-light overflow-hidden bg-cloudy-light'>
+        <thead>
+          <th class='col-3'>parameter</th>
+          <th class='col-3'>type</th>
+          <th class='col-6'>description</th>
+        </thead>
+          <tr>
+            <td>string</td>
+            <td>
+              <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>
+            </td>
+            <td><p>The input string.</p>
+</td>
+          </tr>
+      </table>
+    </p>
+
+
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code></code>
+      :
+      <span class='force-inline'>
+        <p>The array containing the converted string.</p>
+
+      </span>
+
+
+
+
+
+
+</section>
+<section id='repetitions'class='mt2 mb2 py1 px2 keyline-top'>
+  <h3 class='regular'>
+    <a class='black' href='#repetitions'>
+      <code>
+        repetitions<span class='gray'>(string)</span>
+      </code>
+    </a>
+  </h3>
+  <p>Finds letters repetitions, and computes the cartesian product, where each
+repeated letter is substituted itself repeated once or twice.
+Note: in the Unix <code>words</code> file the following words contain three consecutive
+letters:</p>
+<ul>
+<li>bossship</li>
+<li>demigoddessship</li>
+<li>goddessship</li>
+<li>headmistressship</li>
+<li>patronessship</li>
+<li>wallless</li>
+<li>whenceeer</li>
+</ul>
+<p>We purposely ignored these 7 edge cases out of 235886 total words,
+in favour of general better performance.</p>
+
+
+    <p>
+      <table class='table-light overflow-hidden bg-cloudy-light'>
+        <thead>
+          <th class='col-3'>parameter</th>
+          <th class='col-3'>type</th>
+          <th class='col-6'>description</th>
+        </thead>
+          <tr>
+            <td>string</td>
+            <td>
+              <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>
+            </td>
+            <td><p>The input string.</p>
+</td>
+          </tr>
+      </table>
+    </p>
+
+
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code></code>
+      :
+      <span class='force-inline'>
+        <p>The computed suggestions.</p>
+
+      </span>
+
+
+
+
+
+
+</section>
+<section id='vowels'class='mt2 mb2 py1 px2 keyline-top'>
+  <h3 class='regular'>
+    <a class='black' href='#vowels'>
+      <code>
+        vowels<span class='gray'>(string)</span>
+      </code>
+    </a>
+  </h3>
+  <p>Finds all the possible combinations of vowels in a word.</p>
+
+
+    <p>
+      <table class='table-light overflow-hidden bg-cloudy-light'>
+        <thead>
+          <th class='col-3'>parameter</th>
+          <th class='col-3'>type</th>
+          <th class='col-6'>description</th>
+        </thead>
+          <tr>
+            <td>string</td>
+            <td>
+              <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>
+            </td>
+            <td><p>The input string.</p>
+</td>
+          </tr>
+      </table>
+    </p>
+
+
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code></code>
+      :
+      <span class='force-inline'>
+        <p>The computed suggestions.</p>
+
+      </span>
+
+
+
+
+
+
+</section>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
